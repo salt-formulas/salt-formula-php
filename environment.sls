@@ -36,7 +36,25 @@ php_apc_packages:
 
 {%- endif %}
 
+
+
 {%- endif %}
 #}
+
+{%- if pillar.apache is defined %}
+/etc/php5/apache2/php.ini:
+  file:
+  - managed
+  - source: salt://php/conf/apache.ini
+  - template: jinja
+{%- endif %}
+
+{%- if pillar.nginx is defined %}
+/etc/php5/nginx/php.ini:
+  file:
+  - managed
+  - source: salt://php/conf/nginx.ini
+  - template: jinja
+{%- endif %}
 
 {%- endif %}
