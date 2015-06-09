@@ -4,6 +4,10 @@
         'dev_pkgs': ['php5-dev'],
         'development': False,
     },
+    'Arch ARM': {
+        'pkgs': ['php5', 'php-pear'],
+        'dev_pkgs': ['php5-dev'],
+        'development': False,
+    },
+
 }, merge=salt['pillar.get']('php:environment')) %}
-
-
