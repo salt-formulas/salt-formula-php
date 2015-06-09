@@ -26,7 +26,7 @@ php_apc_packages:
   - require:
     - pkg: php_packages
 
-/etc/php5/apache2/conf.d/apc.ini:
+/etc/{{ environment.php }}/apache2/conf.d/apc.ini:
   file:
   - managed
   - source: salt://php/conf/apc.ini
@@ -42,7 +42,7 @@ php_apc_packages:
 #}
 
 {%- if pillar.apache is defined %}
-/etc/php5/apache2/php.ini:
+/etc/{{ environment.php }}/apache2/php.ini:
   file:
   - managed
   - source: salt://php/conf/apache.ini
@@ -50,7 +50,7 @@ php_apc_packages:
 {%- endif %}
 
 {%- if pillar.nginx is defined %}
-/etc/php5/nginx/php.ini:
+/etc/{{ environment.php }}/nginx/php.ini:
   file:
   - managed
   - source: salt://php/conf/nginx.ini
