@@ -1,0 +1,15 @@
+{%- set environment = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['php5', 'php-pear'],
+        'dev_pkgs': ['php5-dev'],
+        'development': False,
+        'php': 'php5',
+    },
+    'Arch': {
+        'php': 'php',
+        'pkgs': ['php', 'php-pear'],
+        'dev_pkgs': ['php5-dev'],
+        'development': False,
+    },
+
+}, merge=salt['pillar.get']('php:environment')) %}
